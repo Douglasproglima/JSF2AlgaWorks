@@ -1,6 +1,8 @@
 package com.douglasproglima.dominio;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable{
 	private String nome;
 	private String fabricante;
 	private String categoria;
