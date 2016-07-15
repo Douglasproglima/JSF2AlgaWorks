@@ -9,7 +9,27 @@
 		<title>Gestão de Produtos</title>
 	</h:head>
 	<h:body>
+	
+		<!--
+		Conceito Sem Redirecionamento
+			GestaoProdutos.xhtml->(HTTP POST)->[Processa Requisição->(Forward)->HelpGestaoProdutos.xhtml->[Browser]
+		 -->
+		 
+		 <!-- 
+		 Conceito Com  Redirecionamento
+		 	GestaoProdutos.xhtml->(HTTP POST)->[Processa Requisição->(HTTP 302)->[Browser]->(HTTP GET)->HelpGestaoProdutos.xhtml->[Browser]
+		 
+		 **Observação: Com Redirecionamento temos duas requisições, pode demorar um pouco há mais.
+		 Para fazer com redirecionamento basta no action passar '?faces-redirect=true';
+		 
+		 **Problema: Se estiver utilizando um escopo de requisição no managedBean, como são duas requisições
+		   			 na primeira requisição para a segundo vai perder os objetos da primeira e vise-e-versa.
+		 -->
+	
 		<h:form>
+			<h:commandLink action="#{gestaoProdutosBean.obterHelp}" value="Help" />
+			<br/><br/>
+			
 			Produto: 
 			<h:inputText value="#{gestaoProdutosBean.produto.nome}" />
 			<br/>

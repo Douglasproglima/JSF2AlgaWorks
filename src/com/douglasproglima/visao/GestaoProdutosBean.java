@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 import com.douglasproglima.dominio.Produto;
 
@@ -29,7 +29,7 @@ import com.douglasproglima.dominio.Produto;
  * */
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class GestaoProdutosBean {
 	private Produto produto;
 	private List<Produto> produtos;
@@ -51,6 +51,15 @@ public class GestaoProdutosBean {
 		this.produtos.add(this.produto);
 		
 		this.produto = new Produto();
+	}
+	
+	public String obterHelp(){
+		if (this.produtos.isEmpty()) {
+			return "HelpGestaoProdutos?faces-redirect=true";
+		}else{
+			return "HelpGestaoProdutosTelefone?faces-redirect=true";
+		}
+		
 	}
 	
 	/*Método para analisar o tempo de vida escopo
