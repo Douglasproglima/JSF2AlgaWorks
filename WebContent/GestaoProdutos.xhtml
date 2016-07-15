@@ -29,11 +29,11 @@
 	
 		<h:form>
 			<h:commandLink action="#{gestaoProdutosBean.obterHelp}" value="Help" >
-				<f:actionListener binding="#{registroBotaoListerner}"/>
+				<f:actionListener type="com.douglasproglima.visao.RegistroBotaoListerner"/>
 			</h:commandLink>
 			<br/><br/>
 			
-			Produto: 
+			Produto1: 
 			<h:inputText value="#{gestaoProdutosBean.produto.nome}" />
 			<br/>
 			
@@ -51,10 +51,15 @@
 			</h:commandButton>
 		</h:form>
 		
-		<ol>
-			<ui:repeat var="itens" value="#{gestaoProdutosBean.produtos}">
-				<li>#{itens.nome} - #{itens.fabricante} - #{itens.categoria}</li>
-			</ui:repeat>
-		</ol>
+		<h:form>
+			<ol>
+				<ui:repeat var="itens" value="#{gestaoProdutosBean.produtos}">
+					<li>#{itens.nome} - #{itens.fabricante} - #{itens.categoria}</li>
+					<h:commandButton action="#{gestaoProdutosBean.excluir}" value="Excluir" >
+						<f:setPropertyActionListener value="#{itens}" target="#{gestaoProdutosBean.produtoSelecionado}" />
+					</h:commandButton>
+				</ui:repeat>
+			</ol>		
+		</h:form>
 	</h:body>
 </html>

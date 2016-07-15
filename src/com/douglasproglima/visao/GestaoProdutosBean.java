@@ -34,6 +34,7 @@ import com.douglasproglima.dominio.Produto;
 public class GestaoProdutosBean {
 	private Produto produto;
 	private List<Produto> produtos;
+	private Produto produtoSelecionado;
 	
 	public GestaoProdutosBean(){
 		this.produtos = new ArrayList<Produto>();
@@ -43,9 +44,15 @@ public class GestaoProdutosBean {
 	public Produto getProduto() {
 		return produto;
 	}
-	
 	public List<Produto> getProdutos() {
 		return produtos;
+	}
+	
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
 	}
 	
 	public void verificarCampos(ActionEvent event){
@@ -62,6 +69,10 @@ public class GestaoProdutosBean {
 		this.produtos.add(this.produto);
 		
 		this.produto = new Produto();
+	}
+	
+	public void excluir(){
+		this.produtos.remove(this.produtoSelecionado);
 	}
 	
 	public String obterHelp(){
