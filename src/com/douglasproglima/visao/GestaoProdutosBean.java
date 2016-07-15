@@ -8,6 +8,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 import com.douglasproglima.dominio.Produto;
 
@@ -35,24 +36,13 @@ public class GestaoProdutosBean {
 	private Produto produto;
 	private List<Produto> produtos;
 	private Produto produtoSelecionado;
+	private List<Produto> produtosFiltrados;
+	private String fabricantePesquisa;
 	
 	public GestaoProdutosBean(){
 		this.produtos = new ArrayList<Produto>();
+		this.produtosFiltrados = new ArrayList<Produto>();
 		this.produto = new Produto();
-	}
-	
-	public Produto getProduto() {
-		return produto;
-	}
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-	
-	public Produto getProdutoSelecionado() {
-		return produtoSelecionado;
-	}
-	public void setProdutoSelecionado(Produto produtoSelecionado) {
-		this.produtoSelecionado = produtoSelecionado;
 	}
 	
 	public void verificarCampos(ActionEvent event){
@@ -73,6 +63,25 @@ public class GestaoProdutosBean {
 	
 	public void excluir(){
 		this.produtos.remove(this.produtoSelecionado);
+	}
+	
+	
+	public void pesquisar(){
+		System.out.println("Pesquisando faricante - Aguarde...");
+	}
+	
+	public void fabricantePesquisaAlterado(ValueChangeEvent event){
+		System.out.println("\nValor fabricantePesquisado Fabricante: " + this.fabricantePesquisa);
+		System.out.println("Valor getOldValue Fabricante: " + event.getOldValue());
+		System.out.println("Valor getNewValue Fabricante: " + event.getNewValue());
+		
+		this.produtosFiltrados.clear();
+		
+		for(Produto produto : this.produtos){
+			if (produto.getNome() != null && produto.getNome().toLowerCase().startsWith(event.getNewValue().toString().toLowerCase())) {
+				this.produtosFiltrados.add(produto);
+			}
+		}
 	}
 	
 	public String obterHelp(){
@@ -99,4 +108,30 @@ public class GestaoProdutosBean {
 //	public void finalizar(){
 //		System.out.println("Finalizando Bean");
 //	}
+
+	//Métodos gets e sets
+	public Produto getProduto() {
+		return produto;
+	}
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+	
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
+	}
+	
+	public List<Produto> getProdutosFiltrados() {
+		return produtosFiltrados;
+	}
+	
+	public String getFabricantePesquisado() {
+		return fabricantePesquisa;
+	}
+	public void setFabricantePesquisado(String fabricantePesquisado) {
+		this.fabricantePesquisa = fabricantePesquisado;
+	}
 }

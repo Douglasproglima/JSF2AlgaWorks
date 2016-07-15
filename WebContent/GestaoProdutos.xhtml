@@ -51,13 +51,28 @@
 			</h:commandButton>
 		</h:form>
 		
+		<!-- Atributo valueChangeListener: 
+			Faz o relacionado com o método que será chamado quando houver alterações de valor no campo;
+			
+			Atributo onChange:
+			Este atributo é referente ao onChange do html, onde pode chamar javascript;
+			-->	
+		<h:form>
+			Pesquisa Fabricante
+			<h:inputText value="#{gestaoProdutosBean.fabricantePesquisado}" 
+						 valueChangeListener="#{gestaoProdutosBean.fabricantePesquisaAlterado}" 
+						 onchange="submit()"/>
+			<h:commandButton action="#{gestaoProdutosBean.pesquisar}" value="Pesquisar" />		
+		</h:form>
+		
 		<h:form>
 			<ol>
-				<ui:repeat var="itens" value="#{gestaoProdutosBean.produtos}">
-					<li>#{itens.nome} - #{itens.fabricante} - #{itens.categoria}</li>
-					<h:commandButton action="#{gestaoProdutosBean.excluir}" value="Excluir" >
-						<f:setPropertyActionListener value="#{itens}" target="#{gestaoProdutosBean.produtoSelecionado}" />
-					</h:commandButton>
+				<ui:repeat var="itens" value="#{gestaoProdutosBean.produtosFiltrados}">
+					<li>#{itens.nome} - #{itens.fabricante} - #{itens.categoria}
+						<h:commandButton action="#{gestaoProdutosBean.excluir}" value="Excluir" >
+							<f:setPropertyActionListener value="#{itens}" target="#{gestaoProdutosBean.produtoSelecionado}" />
+						</h:commandButton>
+					</li>
 				</ui:repeat>
 			</ol>		
 		</h:form>
