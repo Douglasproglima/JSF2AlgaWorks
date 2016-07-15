@@ -3,10 +3,11 @@ package com.douglasproglima.visao;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+//import javax.annotation.PostConstruct;
+//import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import com.douglasproglima.dominio.Produto;
 
@@ -47,6 +48,16 @@ public class GestaoProdutosBean {
 		return produtos;
 	}
 	
+	public void verificarCampos(ActionEvent event){
+		if ("".equals(this.getProduto().getFabricante())) {
+			this.produto.setFabricante("Não Informado");
+		}
+		
+		if ("".equals(this.produto.getCategoria())) {
+			this.produto.setCategoria("Não Informado");
+		}
+	}
+	
 	public void incluir(){
 		this.produtos.add(this.produto);
 		
@@ -65,16 +76,16 @@ public class GestaoProdutosBean {
 	/*Método para analisar o tempo de vida escopo
 	 *Geralmente utilizado para inicializar algum recurso que o Bean precisa, carregar algum .xml etc...
 	 * */
-	@PostConstruct
-	public void inicializar(){
-		System.out.println("Inicializou");
-	}
+//	@PostConstruct
+//	public void inicializar(){
+//		System.out.println("Inicializou");
+//	}
 	
 	/*Será chamado momentos antes do ManagedBean ser encerrado
 	 *Geralmente utilizado finalizar algum recurso que o Bean está utilizando, fechar arquivo, salvar algo no banco.
 	 * */
-	@PreDestroy
-	public void finalizar(){
-		System.out.println("Finalizando Bean");
-	}
+//	@PreDestroy
+//	public void finalizar(){
+//		System.out.println("Finalizando Bean");
+//	}
 }
