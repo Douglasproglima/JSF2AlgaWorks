@@ -1,0 +1,22 @@
+**CICLO DE VIDA
+
+PRIMEIRA REQUISIÇÃO
+	1 - Requisição
+		1.1 - Restaurar Visão.....: Nessa fase é criada uma herarquia de componentes;
+		1.2 - Renderizar a Reposta: Essa fase é reponsável por gerar a saída de todos os componentes e 
+			  seus estados atuais;
+	2 - Resposta
+	
+POSTBACK -> Quando se faz uma ação na mesma página, exemplo: ao clicar em botão.
+	1 - Requisição
+		1.1 - Restaurar Visão...........: Nessa fase é recuperada uma herarquia de componentes;
+		1.2 - Aplicar Vlr da Requisição.: Nessa fase o JSF passa a responsabilidade para cada componente com a 
+										  possibilidade de recuperar o valor para um destes componentes, ainda não 
+										  existe conversão de dados, ainda é uma String;
+		1.3 - Processar Requisição......: Nessa fase ocorre a conversão e validação dos valores que foram atribuídos 	
+										  a cada componente.
+		1.4 - Atualizar os Vlr do Modelo: 
+		1.5 - Invocar Aplicação.........: 
+		1.6 - Renderizar a Reposta......: Essa fase é reponsável por gerar a saída de todos os componentes e seus 
+										  estados atuais;	
+	2 - Resposta
