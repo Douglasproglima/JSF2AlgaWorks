@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastro de Currículo</title>
+	</h:head>
+	<h:body>
+		<h1>Gestão de Produtos - Aula 3.2 - Entrada e Saída de Texto/Imagens</h1>
+		<br/>
+		<h:form id="formCadCurriculo">
+			<h:graphicImage value="imagens/03.png" style="with: 80%; height: 50%;" /><br/>
+			
+			<h:outputLabel value="Cadastro seu currículo para vaga: #{cadastroCurriculoBean.vaga}" 
+						  style="font-weight: bold; font-size: 18px"/>
+			<br/>
+			
+			<h:outputFormat value="Vaga {0} - Cargo {1}" style="Color: red">
+				<f:param value="#{cadastroCurriculoBean.vaga}"/>
+				<f:param value="#{cadastroCurriculoBean.cargo}"/>
+			</h:outputFormat>
+			
+			<br/><br/>
+			
+			<h:outputLabel for="idEmail" value="E-mail" /><br/>
+			<h:inputText id="idEmail" size="60" /><br/>
+			
+			<h:outputLabel for="idSenha" value="Senha"/><br/>
+			<h:inputSecret id="idSenha" size="20" /><br/>
+			
+			<h:outputLabel for="idQualif" value="Qualificações"/><br/>
+			<h:inputTextarea id="idQualif" cols="60" rows="5"/><br/>
+			
+			<h:commandButton id="idBtCadastrar" value="Cadastrar"/>
+		</h:form>
+
+	</h:body>
+</html>
