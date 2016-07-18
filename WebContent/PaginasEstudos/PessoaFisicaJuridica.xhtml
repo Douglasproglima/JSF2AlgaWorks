@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Validando Render</title>
+	</h:head>
+	<h:body>
+		<h1>Pessoa Física e Jurídica</h1>
+		<br/>
+		<h:form id="formCadastro">
+			<h:selectOneRadio id="idTipoPessoa" value="#{cgm.tipoPessoa}" required="true">
+				<f:selectItem itemLabel="Física" itemValue="F" value="#{cgm.tipoPessoa}"/>
+				<f:selectItem itemLabel="Jurídica" itemValue="J" value="#{cgm.tipoPessoa}"/>
+			</h:selectOneRadio>	
+			
+			<br/><br/>
+
+			<h:panelGroup id="idGroupFisica" rendered="#{cgm.tipoPessoa == 'F'}">
+				<h:outputLabel value="FISICA" />
+			</h:panelGroup>
+			
+			<br/><br/>
+			
+			<h:panelGroup id="idGroupJuridica" rendered="#{cgm.tipoPessoa eq ''}">
+				<h:outputLabel value="JURIDICA" />
+			</h:panelGroup>
+
+		</h:form>
+
+	</h:body>
+</html>

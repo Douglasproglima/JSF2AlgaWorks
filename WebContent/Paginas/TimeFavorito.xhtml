@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Time Favorito</title>
+	</h:head>
+	<h:body>
+		<h1>Aula 3.3 - Menus e Caixas de Listagem e Itens de Seleção</h1>
+		<br/>
+		<h:form id="formCadastro">
+			<h:selectOneMenu id="time" value="#{timeFavoritoBean.time}">
+				<f:selectItem itemValue="Ámerica" itemLabel="Coelho"/>
+				<f:selectItem itemValue="Cruzeiro" itemLabel="Raposa"/>
+				<f:selectItem itemValue="Atlético Mineiro" itemLabel="Galo"/>
+				<f:selectItem itemValue="Outros"/>
+			</h:selectOneMenu>	
+			
+			<br/><br/>
+
+<!-- 			<h:selectOneListbox id="idOneListbox" value="#{timeFavoritoBean.time}" size="5"> -->
+<!-- 				<f:selectItem itemValue="Ámerica" itemLabel="Coelho"/> -->
+<!-- 				<f:selectItem itemValue="Cruzeiro" itemLabel="Raposa"/> -->
+<!-- 				<f:selectItem itemValue="Atlético Mineiro" itemLabel="Galo"/> -->
+<!-- 				<f:selectItem itemValue="Outros"/> -->
+<!-- 			</h:selectOneListbox>	 -->
+			
+			<h:commandButton id="idBtEscolher" value="Escolher" action="#{timeFavoritoBean.escolher}"/>
+			
+			<br/><br/>
+			
+			<div> 
+				<h:outputText value="#{timeFavoritoBean.time}" rendered="#{not empty timeFavoritoBean.time}"
+							  style="backgroud-color: red; color: #fff; font-size: 32px; font-family: Arial"/>
+			</div>
+		</h:form>
+
+	</h:body>
+</html>
