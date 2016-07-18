@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Gestão de Produtos</title>
+		<style>
+			.classCampoEmailCSS{
+				background-color: #c0c0c0;
+				padding: 10px;
+			}
+			
+			.classCampoEmailCSS:focus{
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			function validar(){
+					campoEmail = document.getElementById('formCadastro:idCampoEmail');
+
+					if(campoEmail != ''){
+						alert('Assinado!');
+						return true;						
+					}else{
+						alert('Informe o seu e-mail');
+						return false;
+					}
+			}
+		</script>
+	</h:head>
+	<h:body>
+		<h1>Gestão de Produtos - Aula 3.1 - Propriedades Comnuns dos Componentes</h1>
+		<br/>
+		<h:form id="formCadastro">
+			<h:outputLabel value="Assine agora" rendered="true"/>
+			<br/>
+			<h:inputText id="idCampoEmail" value="Seu e-mail" size="40" maxlength="30" title="Informe seu e-mail"
+						 onfocus="this.value = ''" style="font-size: 15px" styleClass="classCampoEmailCSS"/>
+			
+			<h:commandButton id="idBtAssinar" value="Assinar" onclick="return validar()"/>
+		</h:form>
+
+	</h:body>
+</html>
