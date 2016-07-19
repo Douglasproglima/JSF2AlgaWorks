@@ -3,7 +3,7 @@ package com.douglasproglima.timefavorito;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class TimesFavoritos {
+public class TimesFavoritosBean {
 	private String[] times;
 	
 	public void escolher(){
