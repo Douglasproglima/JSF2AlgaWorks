@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Formulário Botões e Links</title>
+		
+		<script type="text/javascript">
+			function validarCampos(){
+				campoNome = document.getElementById('formCadastro:idCampoNome');
+				if(campoNome.value == ''){
+					alert("Campo ''Nome'' obrigatório!");
+					return false;
+				}
+				return true;
+			}
+		</script>
+		
+		<style>
+			.classCampoNome{
+				background-color: white;
+				padding: 5px;
+			}
+			
+			.classCampoNome:focus{
+				background-color: #CCCCCC;
+			}
+		</style>
+	</h:head>
+	<h:body>
+		<h1>Aula 3.5 - Botões e Links</h1>
+		<br/>
+		<h:form id="formCadastro">
+			Nome: <h:inputText id="idCampoNome" value="#{formularioBean.nome}" styleClass="classCampoNome"
+							   onfocus="this.value = ''" />
+			<br/>
+			
+			<h:commandButton id="idBtEnviar" value="Enviar" action="FormularioBotaoResultado" onclick="return validarCampos()"/>
+			<h:commandButton dir="idBtLimpar" value="Limpar" type="reset"/>
+			<br/><br/><br/>
+	
+			<!-- <f:param> Utilizado para passar parâmetro pela url -->
+			<h:outputLink value="http://www.douglasproglima.esy.es/">
+				<h:graphicImage value="/imagens/android.png" style="with:60px; height: 60px;"/>
+				<f:param name="parametroPesquisaGoogle" value="Doulasproglima"></f:param>
+			</h:outputLink>
+			<br/><br/><br/>
+			
+			<!-- Os componentes <h:outputLink> e <h:link> Não se submetem aos dados, diferente do commandLink ou commandButton -->
+			<h:link value="Resultado" outcome="FormularioBotaoResultado"/>
+		</h:form>
+
+	</h:body>
+</html>
