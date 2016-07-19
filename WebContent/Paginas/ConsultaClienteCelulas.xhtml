@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Componentes Dentro de Celulas</title>
+	</h:head>
+	<h:body>
+		<h1>Aula 3.9 - Componentes Dentro de Celulas</h1>
+		<br/>
+		<h:form id="FrmConsultaCli">
+			<h:commandButton id="idBtConsultar" value="Consultar" action="#{consultaCliente2Bean.consultar}"/>				
+			<br/><br/>
+			
+			<h:dataTable value="#{consultaCliente2Bean.clientes}" var="itemCliente" border="2" rendered="#{not empty consultaCliente2Bean.clientes}">
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					<h:inputText value="#{itemCliente.codigo}" size="2"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Cliente</f:facet>
+					<h:outputLink value="http://www.google.com.br/search?q=#{itemCliente.nome}">
+						<h:outputText value="#{itemCliente.nome}" />
+					</h:outputLink>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Cidade</f:facet>
+					<h:inputText  value="#{itemCliente.cidade}" />
+					<h:outputLink value="http://www.google.com.br/search?tbm=isch&amp;q=#{itemCliente.cidade}">
+						<h:graphicImage value="/imagens/pesquisa.jpg" style="with:20px; height: 20px;"/>
+					</h:outputLink>
+				</h:column>
+			</h:dataTable>
+			
+			<h:commandButton action="#{consultaCliente2Bean.salvar}" value="Salvar" rendered="#{not empty consultaCliente2Bean.clientes}"/>			
+		</h:form>
+
+	</h:body>
+</html>
