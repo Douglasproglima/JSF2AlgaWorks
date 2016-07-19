@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Formulário Com Painéis</title>
+		
+		<script type="text/javascript">
+			function validarCampos(){
+				campoNome = document.getElementById('FrmCadUsuario:idCampoNome');
+				if(campoNome.value == ''){
+					alert("Campo ''Nome'' obrigatório!");
+					return false;
+				}
+				return true;
+			}
+		</script>
+		
+		<style>
+			.classCampoNome{
+				background-color: white;
+				padding: 5px;
+			}
+			
+			.classCampoNome:focus{
+				background-color: #CCCCCC;
+			}
+		</style>
+	</h:head>
+	<h:body>
+		<h1>Aula 3.6 - Paineis</h1>
+		<br/>
+		<h:form id="FrmCadUsuario">
+			<h:panelGrid id="idPanelGridCadUsu" columns="2" >
+				<f:facet name="header">
+					Cadastro de Usuários
+				</f:facet>
+				
+				<h:outputLabel for="idCampoNome" value="Nome Completo:" />
+				<h:panelGroup>
+					<h:inputText id="idCampoNome" styleClass="classCampo" onfocus="this.value = ''" size="60"/>
+					<h:graphicImage value="/imagens/help.jpg" style="with:20px; height: 20px;"/>
+				</h:panelGroup>
+				
+				<h:outputLabel for="idCampoEmail" value="E-mail:" />
+				<h:panelGroup>
+					<h:inputText id="idCampoEmail" styleClass="classCampo" onfocus="this.value = ''" size="40"/>
+					<h:graphicImage value="/imagens/help.jpg" style="with:20px; height: 20px;"/>
+				</h:panelGroup>
+				
+				<h:outputLabel for="idCampoSenha" value="Senha:" />
+				<h:panelGroup>
+					<h:inputSecret id="idCampoSenha" styleClass="classCampo" onfocus="this.value = ''" size="20"/>
+					<h:graphicImage value="/imagens/help.jpg" style="with:20px; height: 20px;"/>
+				</h:panelGroup>
+				
+				
+				<h:outputLabel value="" />
+				<h:commandButton id="idBtCadastrar" value="Cadastrar"  onclick="return validarCampos()"/>				
+			</h:panelGrid>
+		</h:form>
+
+	</h:body>
+</html>

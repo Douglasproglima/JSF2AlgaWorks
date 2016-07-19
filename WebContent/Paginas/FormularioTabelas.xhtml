@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core">
+	  
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Formulário Tabelas</title>
+		
+		<script type="text/javascript">
+			function validarCampos(){
+				campoNome = document.getElementById('FrmCadUsuario:idCampoNome');
+				if(campoNome.value == ''){
+					alert("Campo ''Nome'' obrigatório!");
+					return false;
+				}
+				return true;
+			}
+		</script>
+		
+		<style>
+			.classCampo{
+				background-color: white;
+				padding: 5px;
+			}
+			
+			.classCampo:focus{
+				background-color: #CCCCCC;
+			}
+		</style>
+	</h:head>
+	<h:body>
+		<h1>Aula 3.6 - Paineis - Cadastro de Usuários</h1>
+		<br/><br/>
+		
+		<h:form id="FrmCadUsuario">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="2">
+							Cadastro de Usuários
+						</th>
+					</tr>
+				</thead>
+			
+				<tr>
+					<td>
+						<h:outputLabel for="idCampoNome" value="Nome Completo:" />
+					</td>
+					<td>
+						<h:inputText id="idCampoNome" styleClass="classCampo" onfocus="this.value = ''" size="60"/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h:outputLabel for="idCampoEmail" value="E-mail:" />
+					</td>
+					<td>
+						<h:inputText id="idCampoEmail" styleClass="classCampo" onfocus="this.value = ''" size="40"/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<h:outputLabel for="idCampoSenha" value="Senha:" />
+					</td>
+					<td>
+						<h:inputSecret id="idCampoSenha" styleClass="classCampo" onfocus="this.value = ''" size="20"/>
+					</td>
+				</tr>				
+				
+				<tr>
+					<td align="center">
+						<h:commandButton id="idBtCadastrar" value="Cadastrar" onclick="return validarCampos()"/>
+					</td>
+				</tr>
+				
+			</table>
+							
+		</h:form>
+
+	</h:body>
+</html>
