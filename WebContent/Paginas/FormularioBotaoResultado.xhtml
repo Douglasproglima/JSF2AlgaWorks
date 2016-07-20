@@ -15,13 +15,13 @@
 		<h:form id="formResultado">
 			Nome Selecionado: #{formularioBean.nome}
 			<br/>
-			<!-- Gera apenas um html tag input -->
-			<h:commandButton image="/imagens/botao_voltar.png" action="FormularioBotao" style="with:40px; height: 40px;"/>
+			<!-- Gera apenas um html tag input image="/imagens/botao_voltar.png" -->
+			<h:commandButton  value="Voltar" action="FormularioBotao"/>
 			<br/><br/>
 			
 			<!-- Gera um html e javascript que utiliza a tag img para anexar a imagem -->
 			<h:commandLink action="FormularioBotao" >
-				<h:graphicImage value="/imagens/botao_voltar.png" style="with:20px; height: 20px;"/>
+				<h:graphicImage library="imagens" name="botao_voltar.png" style="with:25px; height: 25px;"/>
 			</h:commandLink>
 		</h:form>
 
