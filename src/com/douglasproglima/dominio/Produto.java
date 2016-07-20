@@ -2,6 +2,7 @@ package com.douglasproglima.dominio;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Produto implements Serializable{
 	private String nome;
 	private String fabricante;
