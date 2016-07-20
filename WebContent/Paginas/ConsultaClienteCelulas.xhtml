@@ -7,19 +7,44 @@
 	  
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<title>Componentes Dentro de Celulas</title>
+		<title>Aplicando Estilos css em Tabelas</title>
+<!-- 		<link type="text/css" rel="stylesheet" href="/css/ConsultaClienteCelulas.css"/> -->
+  		<style>
+			.TabelaConsulta{
+				font-family: Arial;
+				font-size: 14px;
+			}
+			
+			.cabecalho{
+				background-color: #696969;
+				color: white;
+			}
+			
+			.linhaA{
+				background-color: #c9c9c9;
+			}
+			
+			.linhaB{
+				background-color: white;
+			}
+			
+		</style>
+		
 	</h:head>
 	<h:body>
-		<h1>Aula 3.9 - Componentes Dentro de Celulas</h1>
+		<h1>Aula 3.10 - Aplicando Estilos css em Tabelas</h1>
 		<br/>
 		<h:form id="FrmConsultaCli">
 			<h:commandButton id="idBtConsultar" value="Consultar" action="#{consultaCliente2Bean.consultar}"/>				
 			<br/><br/>
 			
-			<h:dataTable value="#{consultaCliente2Bean.clientes}" var="itemCliente" border="2" rendered="#{not empty consultaCliente2Bean.clientes}">
+			<h:dataTable value="#{consultaCliente2Bean.clientes}" var="itemCliente" 
+						 rendered="#{not empty consultaCliente2Bean.clientes}" with="600px"
+						 styleClass="TabelaConsulta" headerClass="cabecalho"
+						 rowClasses="linhaA, linhaB">
 				<h:column>
 					<f:facet name="header">Código</f:facet>
-					<h:inputText value="#{itemCliente.codigo}" size="2"/>
+					<h:outputText value="#{itemCliente.codigo}" size="2"/>
 				</h:column>
 				
 				<h:column>

@@ -1,0 +1,17 @@
+			.TabelaConsulta{
+				font-family: Arial;
+				font-size: 14px;
+			}
+			
+			.cabecalho{
+				background-color: #696969;
+				color: white;
+			}
+			
+			.linhaA{
+				background-color: #c9c9c9;
+			}
+			
+			.linhaB{
+				background-color: white;
+			}
