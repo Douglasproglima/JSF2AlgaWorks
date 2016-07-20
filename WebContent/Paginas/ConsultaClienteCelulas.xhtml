@@ -9,27 +9,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Aplicando Estilos css em Tabelas</title>
 <!-- 		<link type="text/css" rel="stylesheet" href="/css/ConsultaClienteCelulas.css"/> -->
-  		<style>
-			.TabelaConsulta{
-				font-family: Arial;
-				font-size: 14px;
-			}
-			
-			.cabecalho{
-				background-color: #696969;
-				color: white;
-			}
-			
-			.linhaA{
-				background-color: #c9c9c9;
-			}
-			
-			.linhaB{
-				background-color: white;
-			}
-			
-		</style>
-		
+		<h:outputStylesheet library="css" name="ConsultaClienteCelulas.css" />
+		<h:outputScript library="js" name="ConsultaClienteCelulas.js"/>
 	</h:head>
 	<h:body>
 		<h1>Aula 3.10 - Aplicando Estilos css em Tabelas</h1>
@@ -58,7 +39,8 @@
 					<f:facet name="header">Cidade</f:facet>
 					<h:inputText  value="#{itemCliente.cidade}" />
 					<h:outputLink value="http://www.google.com.br/search?tbm=isch&amp;q=#{itemCliente.cidade}">
-						<h:graphicImage value="/imagens/pesquisa.jpg" style="with:20px; height: 20px;"/>
+						<h:graphicImage library="imagens" name="pesquisa.jpg" style="with:20px; height: 20px;" 
+										onclick="cidadeSelecionada('#{itemCliente.cidade}')"/>
 					</h:outputLink>
 				</h:column>
 			</h:dataTable>
